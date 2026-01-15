@@ -140,13 +140,17 @@ font-family: 'Metron', sans-serif;
   opacity: 0;
   transition: opacity 0.3s ease;
    pointer-events: none; /* o vídeo continua clicável */
+   z-index: 1;
 }
 
-    .final-video {
+.final-video {
   display: none;
   width: 100%;
   aspect-ratio: 16 / 9;
+  position: relative;
+  z-index: 2;
 }
+
 
 
 /* aparece no hover */
@@ -181,10 +185,13 @@ font-family: 'Metron', sans-serif;
       font-size: 0.9rem;
     }
 
-    
-
-    
   </style>
+
+
+
+
+
+  
 </head>
   
 <body>
@@ -210,18 +217,6 @@ font-family: 'Metron', sans-serif;
   </section>
    -->
 
-  <script>
-function playFinal(container) {
-  const preview = container.querySelector('video');
-  const finalVideo = container.querySelector('.final-video');
-
-  preview.pause();
-  preview.style.display = 'none';
-
-  finalVideo.style.display = 'block';
-  finalVideo.play();
-}
-</script>
 
 
 
@@ -524,5 +519,26 @@ function playFinal(container) {
   <footer id="contacto">
     © 2025 Júlio da Costa — Todos os direitos reservados.
   </footer>
+
+<script>
+function playFinal(container) {
+  if (container.classList.contains('playing')) return;
+
+  container.classList.add('playing');
+
+  const preview = container.querySelector('video:not(.final-video)');
+  const finalVideo = container.querySelector('.final-video');
+  const overlay = container.querySelector('.video-overlay');
+
+  preview.pause();
+  preview.style.display = 'none';
+  overlay.style.display = 'none';
+
+  finalVideo.style.display = 'block';
+  finalVideo.play();
+}
+</script>
+
+  
 </body>
 </html>
