@@ -184,6 +184,13 @@ font-family: 'Metron', sans-serif;
 
 
 
+
+
+
+
+
+  
+
   
 </head>
   
@@ -249,18 +256,20 @@ font-family: 'Metron', sans-serif;
   </a>
 </div>
 -->
+<div class="video-item preview" onclick="playYoutube(this)">
+  <video autoplay muted loop playsinline>
+    <source src="videos/bmx-prev.mp4" type="video/mp4">
+  </video>
 
-<div class="video-item preview" >
-  <a href="videos/bmx.mp4" target="_blank">
-    <video
-      src="videos/bmx-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">BMX</div>
-  </a>
+  <div class="video-overlay">BMX</div>
+
+  <iframe
+    class="final-video"
+    src="https://vimeo.com/1137912554?fl=pl&fe=sh"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
 </div>
 
 
