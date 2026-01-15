@@ -212,13 +212,24 @@
     <!-- Exemplo de vídeo do YT -->
 
 
-<div class="video-item preview">
-  <a href="https://youtu.be/B3_DiO9Dltk" target="_blank">
-    <video autoplay loop muted playsinline preload="metadata">
-      <source src="videos/balmeidaTeaser-prev.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay">TEASER CASAMENTO</div>
-  </a>
+<div class="video-item preview" onclick="playFinal(this)">
+  <video
+    src="videos/balmeidaTeaser-prev.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+
+  <div class="video-overlay">TEASER CASAMENTO</div>
+
+  <!-- vídeo final escondido -->
+  <video
+    class="final-video"
+    src="videos/balmeida1min.mp4"
+    controls
+    playsinline
+  ></video>
 </div>
 
 
