@@ -266,13 +266,13 @@ font-family: 'Metron', sans-serif;
   <div class="video-overlay">BMX</div>
 
   <!-- VIMEO PLAYER -->
-  <iframe
-    class="final-video"
-    src="https://vimeo.com/1137912554?fl=pl&fe=sh"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+ <iframe
+  class="final-video"
+  src="https://player.vimeo.com/video/1137912554?autoplay=1&title=0&byline=0&portrait=0"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen>
+</iframe>
 </div>
 
 
@@ -524,6 +524,21 @@ font-family: 'Metron', sans-serif;
   </footer>
 
 <script>
+function playYoutube(container) {
+  if (container.classList.contains('playing')) return;
+  container.classList.add('playing');
+
+  const preview = container.querySelector('video');
+  const iframe = container.querySelector('iframe');
+  const overlay = container.querySelector('.video-overlay');
+
+  preview.pause();
+  preview.style.display = 'none';
+  overlay.style.display = 'none';
+
+  iframe.style.display = 'block';
+}
+
 function playVimeo(container) {
   if (container.classList.contains('playing')) return;
   container.classList.add('playing');
@@ -540,23 +555,6 @@ function playVimeo(container) {
 }
 </script>
 
-  
-<script>
-function playYoutube(container) {
-  if (container.classList.contains('playing')) return;
-  container.classList.add('playing');
-
-  const preview = container.querySelector('video');
-  const iframe = container.querySelector('iframe');
-  const overlay = container.querySelector('.video-overlay');
-
-  preview.pause();
-  preview.style.display = 'none';
-  overlay.style.display = 'none';
-
-  iframe.style.display = 'block';
-}
-</script>
 
   
 </body>
