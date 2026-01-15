@@ -86,33 +86,13 @@ font-family: 'Metron', sans-serif;
        position: relative;
        overflow: hidden;
     }
-  .video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-.video-preview {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0px;
-}
-
-.video-preview video {
-  width: 100%;
-  aspect-ratio: 16 / 9; /* mantém proporção */
-  object-fit: cover;    /* corta partes do vídeo se necessário */
-  display: block;
-}
-
 
 
 .video-item.preview {
   position: relative;
   overflow: hidden;
   border-radius: 0px;
+  aspect-ratio: 16 / 9;
 }
 
 .video-item.preview video {
@@ -121,6 +101,14 @@ font-family: 'Metron', sans-serif;
   object-fit: cover;
   display: block;
 }
+
+    .video-item.preview video,
+.video-item.preview iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 /* overlay com texto */
 .video-overlay {
@@ -224,25 +212,22 @@ font-family: 'Metron', sans-serif;
     <!-- Exemplo de vídeo do YT -->
 
 
-<div class="video-item preview" onclick="playFinal(this)">
-  <video
-    src="videos/balmeidaTeaser-prev.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+<div class="video-item preview" onclick="playYoutube(this)">
+  <video autoplay muted loop playsinline>
+    <source src="videos/balmeidaTeaser-prev.mp4" type="video/mp4">
+  </video>
 
   <div class="video-overlay">TEASER CASAMENTO</div>
 
-  <!-- vídeo final escondido -->
-  <video
+  <iframe
     class="final-video"
-    src="videos/balmeida1min.mp4"
-    controls
-    playsinline
-  ></video>
+    src="https://www.youtube.com/embed/B3_DiO9Dltk?autoplay=1"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
 </div>
+
 
 
   <!-- video upload do pc
@@ -521,21 +506,19 @@ font-family: 'Metron', sans-serif;
   </footer>
 
 <script>
-function playFinal(container) {
+function playYoutube(container) {
   if (container.classList.contains('playing')) return;
-
   container.classList.add('playing');
 
-  const preview = container.querySelector('video:not(.final-video)');
-  const finalVideo = container.querySelector('.final-video');
+  const preview = container.querySelector('video');
+  const iframe = container.querySelector('iframe');
   const overlay = container.querySelector('.video-overlay');
 
   preview.pause();
   preview.style.display = 'none';
   overlay.style.display = 'none';
 
-  finalVideo.style.display = 'block';
-  finalVideo.play();
+  iframe.style.display = 'block';
 }
 </script>
 
