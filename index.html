@@ -23,6 +23,8 @@
   font-display: swap;
 }
 
+
+    
     body {
       margin: 0;
       background: #000000;
@@ -139,6 +141,13 @@
    pointer-events: none; /* o vídeo continua clicável */
 }
 
+    .final-video {
+  display: none;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+
 /* aparece no hover */
 .video-item.preview:hover .video-overlay {
   opacity: 1;
@@ -182,6 +191,7 @@
     
   </style>
 </head>
+  
 <body>
   <header>
     <div class="logo">JÚLIO DA COSTA</div>
@@ -502,7 +512,19 @@
       
   </section>
 
- 
+ <script>
+function playFinal(container) {
+  const preview = container.querySelector('video');
+  const finalVideo = container.querySelector('.final-video');
+
+  preview.pause();
+  preview.style.display = 'none';
+
+  finalVideo.style.display = 'block';
+  finalVideo.play();
+}
+</script>
+
     
   <footer id="contacto">
     © 2025 Júlio da Costa — Todos os direitos reservados.
