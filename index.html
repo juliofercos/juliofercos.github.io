@@ -524,6 +524,24 @@ font-family: 'Metron', sans-serif;
   </footer>
 
 <script>
+function playVimeo(container) {
+  if (container.classList.contains('playing')) return;
+  container.classList.add('playing');
+
+  const preview = container.querySelector('video');
+  const iframe = container.querySelector('iframe');
+  const overlay = container.querySelector('.video-overlay');
+
+  preview.pause();
+  preview.style.display = 'none';
+  overlay.style.display = 'none';
+
+  iframe.style.display = 'block';
+}
+</script>
+
+  
+<script>
 function playYoutube(container) {
   if (container.classList.contains('playing')) return;
   container.classList.add('playing');
