@@ -103,10 +103,6 @@ font-family: 'Metron', sans-serif;
   display: block;
 }
 
-.video-item.preview,
-.video-item.preview * {
-  cursor: pointer;
-}
 
     
     .video-item.preview video,
@@ -522,73 +518,47 @@ font-family: 'Metron', sans-serif;
   </footer>
 
   <script>
-function stopAllVideos() {
-  document.querySelectorAll('.video-item').forEach(item => {
-    item.classList.remove('playing');
-
-    const preview = item.querySelector('video');
-    const iframe = item.querySelector('iframe');
-    const overlay = item.querySelector('.video-overlay');
-
-    if (preview) {
-      preview.style.display = 'block';
-    }
-
-    if (iframe) {
-      iframe.style.display = 'none';
-      iframe.src = iframe.src; // força parar YouTube/Vimeo
-    }
-
-    if (overlay) {
-      overlay.style.display = 'flex';
-    }
-  });
-}
-
 function playYoutube(container) {
-  stopAllVideos();
+  if (container.classList.contains('playing')) return;
   container.classList.add('playing');
 
   const preview = container.querySelector('video');
   const iframe = container.querySelector('iframe');
   const overlay = container.querySelector('.video-overlay');
 
-  preview.style.display = 'none';
-  overlay.style.display = 'none';
-  iframe.style.display = 'block';
-}
+  if (preview) {
+    preview.pause();
+    preview.style.display = 'none';
+  }
 
-function playVimeo(container) {
-  stopAllVideos();
-  container.classList.add('playing');
-
-  const preview = container.querySelector('video');
-  const iframe = container.querySelector('iframe');
-  const overlay = container.querySelector('.video-overlay');
-
-  preview.style.display = 'none';
-  overlay.style.display = 'none';
-  iframe.style.display = 'block';
+  if (overlay) overlay.style.display = 'none';
+  if (iframe) iframe.style.display = 'block';
 }
 </script>
-
 
 <script>
 document.querySelectorAll('.video-item.preview').forEach(item => {
   const video = item.querySelector('video');
 
+  if (!video) return;
+
   item.addEventListener('mouseenter', () => {
-    if (video) video.play();
+    if (!item.classList.contains('playing')) {
+      video.play();
+    }
   });
 
   item.addEventListener('mouseleave', () => {
-    if (video) {
+    if (!item.classList.contains('playing')) {
       video.pause();
       video.currentTime = 0;
     }
   });
 });
 </script>
+
+
+
 
 
   
