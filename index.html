@@ -519,26 +519,27 @@ font-family: 'Metron', sans-serif;
     © 2025 Júlio da Costa — Todos os direitos reservados.
   </footer>
 
-<script>
+  <script>
 function stopAllVideos() {
   document.querySelectorAll('.video-item').forEach(item => {
     item.classList.remove('playing');
 
-    const video = item.querySelector('video');
+    const preview = item.querySelector('video');
     const iframe = item.querySelector('iframe');
     const overlay = item.querySelector('.video-overlay');
 
-    if (video) {
-      video.style.display = 'block';
-      video.play();
+    if (preview) {
+      preview.style.display = 'block';
     }
 
     if (iframe) {
       iframe.style.display = 'none';
-      iframe.src = iframe.src; // força parar o player
+      iframe.src = iframe.src; // força parar YouTube/Vimeo
     }
 
-    if (overlay) overlay.style.display = 'flex';
+    if (overlay) {
+      overlay.style.display = 'flex';
+    }
   });
 }
 
@@ -550,10 +551,8 @@ function playYoutube(container) {
   const iframe = container.querySelector('iframe');
   const overlay = container.querySelector('.video-overlay');
 
-  preview.pause();
   preview.style.display = 'none';
   overlay.style.display = 'none';
-
   iframe.style.display = 'block';
 }
 
@@ -565,13 +564,12 @@ function playVimeo(container) {
   const iframe = container.querySelector('iframe');
   const overlay = container.querySelector('.video-overlay');
 
-  preview.pause();
   preview.style.display = 'none';
   overlay.style.display = 'none';
-
   iframe.style.display = 'block';
 }
 </script>
+
 
 
 
