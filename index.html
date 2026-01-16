@@ -1,546 +1,180 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Júlio daCosta – Portfólio</title>
-  <style>
-   
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Júlio daCosta – Portfólio</title>
 
-
+<style>
 @font-face {
   font-family: 'Metron';
   src: url('fonts/MetronMediumPro.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
   font-display: swap;
 }
 
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Metron', sans-serif;
+}
 
-    
-    body {
-      margin: 0;
-      background: #000000;
-      color: #111;
-    }
-    header {
-      padding: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000000;
-    }
-    .logo {
- font-family: 'Metron', sans-serif;
-      font-size: 1rem;
-      font-weight: 100;
-      letter-spacing: -0.5px;
-      color: #fff;
-    }
-    nav a {
- font-family: 'Metron', sans-serif;
-      margin-left: .7rem;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 100;
-    }
-    .hero {
-      padding: 5rem 2rem;
-font-family: 'Metron', sans-serif;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-      color: #ffffff;
-    }
-    .gallery {
+header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+nav a {
+  margin-left: .7rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 100;
+}
+
+.gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  padding: 0;
   width: 100%;
 }
 
-    .video-item {
-    
-      /* border: 1px solid #e5e5e5;*/
-    font-family: 'Metron', sans-serif;
-      border-radius: 0%;
-      padding: 0;
-      /* box-shadow: 0 3px 10px rgba(0,0,0,0.05); */
-       position: relative;
-       overflow: hidden;
-    }
-
-
-.video-item.preview {
+.video-item {
   position: relative;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 0px;
-  aspect-ratio: 16 / 9;
   cursor: pointer;
-  pointer-events: none;
-
 }
 
-.video-item.preview video {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
-
-
-    
-    .video-item.preview video,
-.video-item.preview iframe {
+.video-item video,
+.video-item iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-
-/* overlay com texto */
 .video-overlay {
   position: absolute;
   inset: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0,0,0,0.45);
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: .8rem;
-  letter-spacing: 0.05rem;
+  letter-spacing: .05rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
-   pointer-events: none; /* o vídeo continua clicável */
-   z-index: 1;
-}
-
-.final-video {
-  display: none;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  position: relative;
+  transition: opacity .3s;
   z-index: 2;
 }
-
-
-
-/* aparece no hover */
-.video-item.preview:hover .video-overlay {
-  opacity: 1;
-}
-
 
 .video-item:hover .video-overlay {
   opacity: 1;
 }
 
-
-.instagram-link {
-  margin-left: 1rem; /* espaçamento em relação aos outros links */
+.final-video {
+  display: none;
 }
 
-.instagram-icon {
-  width: 25px;   /* tamanho do ícone */
-  height: 18px;
-  vertical-align: middle;
-  
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: .8rem;
 }
-
-
-
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #ffffff;
-      font-size: 0.9rem;
-    }
-
-  </style>
-
-
-
-
-
-
-
-
-
-
-  
-
-  
+</style>
 </head>
-  
+
 <body>
-  <header>
-    <div class="logo">JÚLIO DA COSTA</div>
-    <nav>
-      <!--  <a href="#portfolio">PORTFÓLIO</a>   -->
 
-      <a href="contacto.html">CONTACTO</a>
-      <a href="https://www.instagram.com/juliodacosta91" target="_blank" class="instagram-link">
-      <img src="imagens/iglogobranco.png" alt="Instagram" class="instagram-icon">
-      
+<header>
+  <div class="logo">JÚLIO DA COSTA</div>
+  <nav>
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+</header>
 
-    </a>
-    </nav>
-    
-  </header>
-    <!-- TIREI ESTE TEXTO
+<section class="gallery">
 
-  <section class="hero">
-    <h1>Júlio daCosta</h1>
-    <p>Trabalho com produção audiovisual, storytelling e edição moderna focada em conteúdo digital.</p>
-  </section>
-   -->
-
-
-
-
-  <section id="portfolio" class="gallery">
-    <!-- Exemplo de vídeo do YT -->
-
-
-<div class="video-item preview" onclick="playYoutube(this)">
+<!-- YOUTUBE -->
+<div class="video-item">
   <video muted loop playsinline preload="metadata">
-    <source src="videos/balmeidaTeaser-prev.mp4" type="video/mp4">
+    <source src="videos/gil-prev.mp4" type="video/mp4">
   </video>
-
-  <div class="video-overlay">TEASER CASAMENTO</div>
-
-  <iframe
-    class="final-video"
-    src="https://www.youtube.com/embed/B3_DiO9Dltk?autoplay=1"
-    frameborder="0"
+  <div class="video-overlay">FÉRIAS</div>
+  <iframe class="final-video"
+    src="https://www.youtube.com/embed/Dv9fYUjh-8w"
     allow="autoplay; fullscreen"
     allowfullscreen>
   </iframe>
 </div>
 
-
-
-  <!-- video upload do pc
-<div class="video-item preview">
-  <a href="videos/balmeida1min.mp4" target="_blank">
-    <video
-      src="videos/balmeidaTeaser-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">TEASER CASAMENTO</div>
-  </a>
-</div>
--->
-
-<div class="video-item preview" onclick="playVimeo(this)">
-  <!-- PREVIEW LOOP -->
-<video muted loop playsinline preload="metadata">
+<!-- VIMEO -->
+<div class="video-item">
+  <video muted loop playsinline preload="metadata">
     <source src="videos/bmx-prev.mp4" type="video/mp4">
   </video>
-
   <div class="video-overlay">BMX</div>
-
-  <!-- VIMEO PLAYER -->
-<iframe
-  class="final-video"
-  src="https://player.vimeo.com/video/1137912554?autoplay=1&title=0&byline=0&portrait=0"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
+  <iframe class="final-video"
+    src="https://player.vimeo.com/video/1137912554"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
 </div>
 
-<div class="video-item preview" onclick="playVimeo(this)">
-  <!-- PREVIEW LOOP -->
-<video muted loop playsinline preload="metadata">
-    <source src="videos/casal-prev.mp4" type="video/mp4">
-  </video>
-
-  <div class="video-overlay">CASAL</div>
-
-  <!-- VIMEO PLAYER -->
-<iframe
-  class="final-video"
-  src="https://player.vimeo.com/video/1154831701?h=aaed9847b3"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
-  </div>
-
-
-    <div class="video-item preview" onclick="playYoutube(this)">
+<!-- OUTRO YOUTUBE -->
+<div class="video-item">
   <video muted loop playsinline preload="metadata">
-    <source src="videos/gil-prev.mp4" type="video/mp4">
-  </video>
-
-  <div class="video-overlay">FÉRIAS</div>
-
- <iframe
-  class="final-video"
-  src="https://www.youtube.com/embed/Dv9fYUjh-8w?autoplay=1"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
-</div>
-
-
-    <div class="video-item preview" onclick="playYoutube(this)">
-<video muted loop playsinline preload="metadata">
     <source src="videos/casafontes-prev.mp4" type="video/mp4">
   </video>
-
   <div class="video-overlay">CASA FONTES</div>
-
-  <iframe
-  class="final-video"
-  src="https://www.youtube.com/embed/l9oM8b-M1qU?autoplay=1"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
-
+  <iframe class="final-video"
+    src="https://www.youtube.com/embed/l9oM8b-M1qU"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
 </div>
 
+</section>
 
-<div class="video-item preview">
-  <a href="videos/comfort.mp4" target="_blank">
-    <video
-      src="videos/comfort-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">PORTRAIT VIDEO - COMFORT RACHEAL</div>
-  </a>
-</div>
-
-
-<div class="video-item preview">
-  <a href="videos/porsche.mp4" target="_blank">
-    <video
-      src="videos/porsche-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">PORSCHE</div>
-  </a>
-</div>
-
-
-<div class="video-item preview">
-  <a href="videos/futebol.mp4" target="_blank">
-    <video
-      src="videos/futebol-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">FUTEBOL</div>
-  </a>
-</div>
-
-
-<div class="video-item preview">
-  <a href="videos/acapeta.mp4" target="_blank">
-    <video
-      src="videos/acapeta-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">ANA CAPETA - SCP FEMININO</div>
-  </a>
-</div>
-
-
-
-
-<div class="video-item preview">
-  <a href="videos/SurfSkate.mp4" target="_blank">
-    <video
-      src="videos/SurfSkate-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">SURF SKATE - OUTFIT SCP</div>
-  </a>
-</div>
-
-
-<div class="video-item preview">
-  <a href="videos/Basket_v1.mp4" target="_blank">
-    <video
-      src="videos/Basket-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">BASKET SCP</div>
-  </a>
-</div>
-
-
-<div class="video-item preview">
-  <a href="videos/atletismo.mp4" target="_blank">
-    <video
-      src="videos/atletismo-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">ATLETISMO - NOVO EQUIPAMENTO SCP</div>
-  </a>
-</div>
-
-<div class="video-item preview">
-  <a href="videos/v60.mp4" target="_blank">
-    <video
-      src="videos/v60-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">CAFE V60</div>
-  </a>
-</div>
-
-<div class="video-item preview">
-  <a href="videos/Brunch.mp4" target="_blank">
-    <video
-      src="videos/Brunch-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">BRUNCH</div>
-  </a>
-</div>
-
-<div class="video-item preview">
-  <a href="videos/cafe.mp4" target="_blank">
-    <video
-      src="videos/cafe-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">CAFÉ</div>
-  </a>
-</div>
-
-<div class="video-item preview">
-  <a href="videos/roupa.mp4" target="_blank">
-    <video
-      src="videos/roupa-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">ROUPA</div>
-  </a>
-</div>
-
-<div class="video-item preview">
-  <a href="videos/laziness.mp4" target="_blank">
-    <video
-      src="videos/laziness-prev.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
-    <div class="video-overlay">LAZINESS</div>
-  </a>
-</div>
-
-
-
-
-
- <!-- Exemplo de vídeo sem abrir nova pagina quando PLAY 
-<div class="video-item preview" onclick="openLightbox('videos/gil.mp4')">
-  <video
-    src="videos/gil-prev.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
-
-  <div class="video-overlay">SUMMER</div>
-</div>
--->
-      
-  </section>
-
-
-    
-  <footer id="contacto">
-    © 2025 Júlio da Costa — Todos os direitos reservados.
-  </footer>
-
-  <script>
-function playYoutube(container) {
-  if (container.classList.contains('playing')) return;
-  container.classList.add('playing');
-
-  const preview = container.querySelector('video');
-  const iframe = container.querySelector('iframe');
-  const overlay = container.querySelector('.video-overlay');
-
-  if (preview) {
-    preview.pause();
-    preview.style.display = 'none';
-  }
-
-  if (overlay) overlay.style.display = 'none';
-  if (iframe) iframe.style.display = 'block';
-}
-</script>
+<footer>
+© 2025 Júlio da Costa — Todos os direitos reservados.
+</footer>
 
 <script>
-document.querySelectorAll('.video-item.preview').forEach(item => {
-  const video = item.querySelector('video');
+const items = document.querySelectorAll('.video-item');
 
-  if (!video) return;
+function stopAll() {
+  items.forEach(item => {
+    item.classList.remove('playing');
+
+    const v = item.querySelector('video');
+    const iframe = item.querySelector('iframe');
+    const overlay = item.querySelector('.video-overlay');
+
+    if (v) {
+      v.pause();
+      v.currentTime = 0;
+      v.style.display = 'block';
+    }
+
+    if (iframe) {
+      iframe.src = iframe.src;
+      iframe.style.display = 'none';
+    }
+
+    overlay.style.display = 'flex';
+  });
+}
+
+items.forEach(item => {
+  const video = item.querySelector('video');
+  const overlay = item.querySelector('.video-overlay');
+  const iframe = item.querySelector('iframe');
 
   item.addEventListener('mouseenter', () => {
     if (!item.classList.contains('playing')) {
@@ -554,13 +188,19 @@ document.querySelectorAll('.video-item.preview').forEach(item => {
       video.currentTime = 0;
     }
   });
+
+  overlay.addEventListener('click', () => {
+    stopAll();
+    item.classList.add('playing');
+
+    video.style.display = 'none';
+    overlay.style.display = 'none';
+    iframe.style.display = 'block';
+
+    iframe.src += iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1';
+  });
 });
 </script>
 
-
-
-
-
-  
 </body>
 </html>
