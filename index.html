@@ -302,12 +302,12 @@ font-family: 'Metron', sans-serif;
   <div class="video-overlay">FÉRIAS</div>
 
  <iframe
-    class="final-video"
-    src="https://youtu.be/Dv9fYUjh-8w"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+  class="final-video"
+  src="https://www.youtube.com/embed/Dv9fYUjh-8w?autoplay=1"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen>
+</iframe>
 </div>
 
 
@@ -319,12 +319,13 @@ font-family: 'Metron', sans-serif;
   <div class="video-overlay">CASA FONTES</div>
 
   <iframe
-    class="final-video"
-    src="https://youtu.be/l9oM8b-M1qU"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+  class="final-video"
+  src="https://www.youtube.com/embed/l9oM8b-M1qU?autoplay=1"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen>
+</iframe>
+
 </div>
 
 
@@ -519,8 +520,30 @@ font-family: 'Metron', sans-serif;
   </footer>
 
 <script>
+function stopAllVideos() {
+  document.querySelectorAll('.video-item').forEach(item => {
+    item.classList.remove('playing');
+
+    const video = item.querySelector('video');
+    const iframe = item.querySelector('iframe');
+    const overlay = item.querySelector('.video-overlay');
+
+    if (video) {
+      video.style.display = 'block';
+      video.play();
+    }
+
+    if (iframe) {
+      iframe.style.display = 'none';
+      iframe.src = iframe.src; // força parar o player
+    }
+
+    if (overlay) overlay.style.display = 'flex';
+  });
+}
+
 function playYoutube(container) {
-  if (container.classList.contains('playing')) return;
+  stopAllVideos();
   container.classList.add('playing');
 
   const preview = container.querySelector('video');
@@ -535,7 +558,7 @@ function playYoutube(container) {
 }
 
 function playVimeo(container) {
-  if (container.classList.contains('playing')) return;
+  stopAllVideos();
   container.classList.add('playing');
 
   const preview = container.querySelector('video');
@@ -549,6 +572,7 @@ function playVimeo(container) {
   iframe.style.display = 'block';
 }
 </script>
+
 
 
   
