@@ -92,6 +92,8 @@ font-family: 'Metron', sans-serif;
   border-radius: 0px;
   aspect-ratio: 16 / 9;
   cursor: pointer;
+  pointer-events: none;
+
 }
 
 .video-item.preview video {
@@ -225,7 +227,7 @@ font-family: 'Metron', sans-serif;
 
 
 <div class="video-item preview" onclick="playYoutube(this)">
-  <video autoplay muted loop playsinline>
+  <video muted loop playsinline preload="metadata">
     <source src="videos/balmeidaTeaser-prev.mp4" type="video/mp4">
   </video>
 
@@ -259,7 +261,7 @@ font-family: 'Metron', sans-serif;
 
 <div class="video-item preview" onclick="playVimeo(this)">
   <!-- PREVIEW LOOP -->
-  <video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata">
     <source src="videos/bmx-prev.mp4" type="video/mp4">
   </video>
 
@@ -277,7 +279,7 @@ font-family: 'Metron', sans-serif;
 
 <div class="video-item preview" onclick="playVimeo(this)">
   <!-- PREVIEW LOOP -->
-  <video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata">
     <source src="videos/casal-prev.mp4" type="video/mp4">
   </video>
 
@@ -295,7 +297,7 @@ font-family: 'Metron', sans-serif;
 
 
     <div class="video-item preview" onclick="playYoutube(this)">
-  <video autoplay muted loop playsinline>
+  <video muted loop playsinline preload="metadata">
     <source src="videos/gil-prev.mp4" type="video/mp4">
   </video>
 
@@ -312,7 +314,7 @@ font-family: 'Metron', sans-serif;
 
 
     <div class="video-item preview" onclick="playYoutube(this)">
-  <video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata">
     <source src="videos/casafontes-prev.mp4" type="video/mp4">
   </video>
 
@@ -571,6 +573,22 @@ function playVimeo(container) {
 </script>
 
 
+<script>
+document.querySelectorAll('.video-item.preview').forEach(item => {
+  const video = item.querySelector('video');
+
+  item.addEventListener('mouseenter', () => {
+    if (video) video.play();
+  });
+
+  item.addEventListener('mouseleave', () => {
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
+});
+</script>
 
 
   
