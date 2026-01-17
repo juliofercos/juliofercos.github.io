@@ -45,6 +45,40 @@ nav a {
   width: 100%;
 }
 
+
+
+
+
+.video-item {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* thumbnail */
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* preview escondido */
+.video-item video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+
+
+
+
+
 .video-item {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -100,9 +134,11 @@ footer {
 
 <section class="gallery">
 
-
   <!-- YOUTUBE -->
 <div class="video-item" data-video="https://www.youtube.com/embed/laeG8eSyOAI?si=u5QS53PrOgrY1vwp">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/futebol-thumb.jpg" class="video-thumb" alt="Futebol">
+   <!-- PREVIEW VIDEO -->
   <video muted loop playsinline preload="metadata">
     <source src="videos/futebol-prev.mp4" type="video/mp4">
   </video>
@@ -112,6 +148,8 @@ footer {
 
     <!-- VIMEO -->
 <div class="video-item" data-video="https://player.vimeo.com/video/1137912554">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/bmx-thumb.png" class="video-thumb" alt="BMX">
   <video muted loop playsinline preload="metadata">
     <source src="videos/bmx-prev.mp4" type="video/mp4">
   </video>
@@ -123,6 +161,8 @@ footer {
 
     <!-- VIMEO -->
   <div class="video-item" data-video="https://player.vimeo.com/video/1155546739?h=9f0b804207">
+    <!-- THUMBNAIL -->
+  <img src="thumbs/acapeta-thumb.jpg" class="video-thumb" alt="acapeta">
   <video muted loop playsinline preload="metadata">
     <source src="videos/acapeta-prev.mp4" type="video/mp4">
   </video>
@@ -133,6 +173,8 @@ footer {
 <!-- YOUTUBE -->
 
   <div class="video-item" data-video="https://www.youtube.com/embed/B3_DiO9Dltk?autoplay=1">
+    <!-- THUMBNAIL -->
+  <img src="thumbs/balmeidateaser-thumb.jpg" class="video-thumb" alt="teaser">
   <video muted loop playsinline preload="metadata">
     <source src="videos/balmeidaTeaser-prev.mp4" type="video/mp4">
   </video>
@@ -142,6 +184,8 @@ footer {
 
     <!-- VIMEO -->
 <div class="video-item" data-video="https://player.vimeo.com/video/1154831701?h=aaed9847b3">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/casal4-thumb.png" class="video-thumb" alt="casal">
   <video muted loop playsinline preload="metadata">
     <source src="videos/casal-prev.mp4" type="video/mp4">
   </video>
@@ -151,6 +195,8 @@ footer {
 
 <!-- YOUTUBE -->
 <div class="video-item" data-video="https://www.youtube.com/embed/xR6Zb_asdjQ?si=qCDvekm8_Z9ZYiVn">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/balmeida6-thumb.jpg" class="video-thumb" alt="casamento">
   <video muted loop playsinline preload="metadata">
     <source src="videos/balmeida-prev.mp4" type="video/mp4">
   </video>
@@ -163,6 +209,8 @@ footer {
 <!-- OUTRO YOUTUBE -->
 
   <div class="video-item" data-video="https://www.youtube.com/embed/l9oM8b-M1qU">
+    <!-- THUMBNAIL -->
+  <img src="thumbs/casafontes3-thumb.jpg" class="video-thumb" alt="casafontes">
   <video muted loop playsinline preload="metadata">
     <source src="videos/casafontes-prev.mp4" type="video/mp4">
   </video>
@@ -176,6 +224,8 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155547882?h=0610bbe79a">
+    <!-- THUMBNAIL -->
+  <img src="thumbs/comfort-thumb.jpg" class="video-thumb" alt="comfort">
   <video muted loop playsinline preload="metadata">
     <source src="videos/comfort-prev.mp4" type="video/mp4">
   </video>
@@ -186,6 +236,8 @@ footer {
 
 <!-- YOUTUBE -->
 <div class="video-item" data-video="https://www.youtube.com/embed/Dv9fYUjh-8w">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/gil2-thumb.jpg" class="video-thumb" alt="gil">
   <video muted loop playsinline preload="metadata">
     <source src="videos/gil-prev.mp4" type="video/mp4">
   </video>
@@ -195,7 +247,9 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155572029?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/cafe-thumb.jpg" class="video-thumb" alt="coffee">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/cafe-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">COFFEE</div>
@@ -204,7 +258,9 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155571881?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/brunch-thumb.jpg" class="video-thumb" alt="brunch">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/Brunch-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">BRUNCH</div>
@@ -213,7 +269,9 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155572054?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/v602-thumb.jpg" class="video-thumb" alt="V60">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/v60-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">V60</div>
@@ -223,7 +281,9 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155573032?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/atletismo2-thumb.jpg" class="video-thumb" alt="atletismo">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/atletismo-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">ATLETISMO SCP</div>
@@ -233,7 +293,9 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155573063?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/porsche-thumb.jpg" class="video-thumb" alt="porsche">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/porsche-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">PORSCHE</div>
@@ -243,52 +305,64 @@ footer {
 <!-- VIMEO -->
 
   <div class="video-item" data-video="https://player.vimeo.com/video/1155573047?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
-  <video muted loop playsinline preload="metadata">
+  <!-- THUMBNAIL -->
+  <img src="thumbs/basket-thumb.png" class="video-thumb" alt="basket">
+    <video muted loop playsinline preload="metadata">
     <source src="videos/Basket-prev.mp4" type="video/mp4">
   </video>
   <div class="video-overlay">BASKET</div>
 </div>
+
+
+
 
 </section>
 
 <footer>
 © 2025 Júlio da Costa — Todos os direitos reservados.
 </footer>
-
-  <script>
+<script>
 const items = document.querySelectorAll('.video-item');
 
 function stopAllPlayers() {
   document.querySelectorAll('.final-player').forEach(p => p.remove());
 
   items.forEach(item => {
-    const v = item.querySelector('video');
+    item.classList.remove('playing');
+
+    const video = item.querySelector('video');
+    const thumb = item.querySelector('.video-thumb');
     const overlay = item.querySelector('.video-overlay');
 
-    v.style.display = 'block';
-    v.pause();
-    v.currentTime = 0;
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+    thumb.style.display = 'block';
     overlay.style.display = 'flex';
-    item.classList.remove('playing');
   });
 }
 
 items.forEach(item => {
   const video = item.querySelector('video');
+  const thumb = item.querySelector('.video-thumb');
   const overlay = item.querySelector('.video-overlay');
   const url = item.dataset.video;
 
   item.addEventListener('mouseenter', () => {
-    if (!item.classList.contains('playing')) {
-      video.play();
-    }
+    if (item.classList.contains('playing')) return;
+
+    thumb.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
   });
 
   item.addEventListener('mouseleave', () => {
-    if (!item.classList.contains('playing')) {
-      video.pause();
-      video.currentTime = 0;
-    }
+    if (item.classList.contains('playing')) return;
+
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+    thumb.style.display = 'block';
   });
 
   overlay.addEventListener('click', () => {
@@ -296,6 +370,7 @@ items.forEach(item => {
 
     item.classList.add('playing');
     video.style.display = 'none';
+    thumb.style.display = 'none';
     overlay.style.display = 'none';
 
     const iframe = document.createElement('iframe');
@@ -316,7 +391,6 @@ items.forEach(item => {
   });
 });
 </script>
-
 
 </body>
 </html>
