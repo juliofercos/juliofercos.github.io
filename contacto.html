@@ -48,10 +48,11 @@
   font-size: 0.8rem;
   color: #fff;
   text-decoration: none;
-  opacity: 0.6;
+  opacity: 0.5;
   transition: opacity 0.25s ease;
 }
 
+/* hover normal */
 .header-left a:hover {
   opacity: 1;
 }
@@ -75,6 +76,17 @@
 }
 
 .header-right img:hover {
+  opacity: 1;
+}
+
+
+    /* link ativo — FILMES */
+.page-filmes .header-left a[href="index.html"] {
+  opacity: 1;
+}
+
+/* link ativo — CONTACTO */
+.page-contacto .header-left a[href="contacto.html"] {
   opacity: 1;
 }
 
@@ -184,7 +196,7 @@
   </style>
 </head>
 
-<body>
+<body class="page-contacto">
 
  <header class="site-header">
 
