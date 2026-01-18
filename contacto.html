@@ -21,6 +21,75 @@
       font-family: 'Metron', sans-serif;
     }
 
+
+
+
+/* inicio alteracao */
+  
+
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: #000;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.header-left a {
+  font-family: 'Metron', sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.header-left a:hover {
+  opacity: 1;
+}
+
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Metron', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.header-right img {
+  width: 18px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+.header-right img:hover {
+  opacity: 1;
+}
+
+
+
+  /* fim alteracao */
+
+
+
+
+
+
+
+
+    
     /* HEADER (igual à home) */
     header {
       padding: 2rem;
