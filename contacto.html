@@ -24,7 +24,14 @@
       background: #000;
       color: #fff;
       font-family: 'Metron', sans-serif;
+       display: flex;
+  flex-direction: column;
     }
+
+    html, body {
+  height: 100%;
+}
+
 
 
 .site-header {
@@ -185,7 +192,7 @@
 
     /* CONTEÚDO CONTACTO */
     .contact-wrapper {
-  min-height: calc(100vh - 96px);
+  flex: 1; /* ocupa todo o espaço abaixo do header */
   display: flex;
   align-items: center;
   justify-content: center;
