@@ -76,10 +76,9 @@
       font-size: 1.6rem;
       cursor: pointer;
       line-height: 1;
-      display: none;
     }
 
-    /* ===== MOBILE MENU OVERLAY ===== */
+    /* ===== MOBILE MENU FULLSCREEN ===== */
     .mobile-menu {
       position: fixed;
       inset: 0;
@@ -90,14 +89,14 @@
       z-index: 20;
     }
 
-    .mobile-menu nav {
+    .mobile-menu-links {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.5rem;
       text-align: center;
     }
 
-    .mobile-menu a {
+    .mobile-menu-links a {
       font-size: 1.2rem;
       letter-spacing: 0.1em;
       color: #fff;
@@ -106,7 +105,17 @@
       transition: opacity 0.25s ease;
     }
 
-    .mobile-menu a:hover {
+    .mobile-menu-links a:hover {
+      opacity: 1;
+    }
+
+    /* ativo — CONTACTO */
+    .page-contacto .mobile-menu-links a[href="contacto.html"] {
+      opacity: 1;
+    }
+
+    /* ativo — FILMES */
+    .page-filmes .mobile-menu-links a[href="index.html"] {
       opacity: 1;
     }
 
@@ -143,11 +152,6 @@
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-
-      .menu-toggle {
-        display: block;
-      }
-
       .contact-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -177,10 +181,10 @@
 
 <!-- MENU MOBILE FULLSCREEN -->
 <div class="mobile-menu">
-  <nav>
+  <div class="mobile-menu-links">
     <a href="index.html">FILMES</a>
     <a href="contacto.html">CONTACTO</a>
-  </nav>
+  </div>
 </div>
 
 <!-- CONTEÚDO -->
@@ -213,7 +217,6 @@
     document.body.style.overflow = open ? '' : 'hidden';
   });
 
-  // fecha menu ao clicar num link
   document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       menu.style.display = 'none';
