@@ -21,7 +21,7 @@
       font-display: swap;
     }
 
-    /* ===== RESET / BASE ===== */
+    /* ===== BASE ===== */
     html, body {
       height: 100%;
     }
@@ -42,18 +42,17 @@
       align-items: center;
       justify-content: space-between;
       padding: 2rem;
-      background: #000;
     }
 
     .header-left,
     .header-right {
       display: flex;
+      align-items: center;
       gap: 1rem;
       z-index: 2;
     }
 
     .header-left a {
-      font-family: 'Metron', sans-serif;
       font-size: 0.8rem;
       color: #fff;
       text-decoration: none;
@@ -74,15 +73,14 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'Metron', sans-serif;
       font-size: 0.9rem;
       letter-spacing: 0.05em;
-      color: #fff;
       opacity: 0.9;
+      white-space: nowrap;
     }
 
     .header-right img {
-      width: 27px; /* ~1.5x */
+      width: 27px;
       height: auto;
       opacity: 0.8;
       transition: opacity 0.25s ease;
@@ -92,7 +90,39 @@
       opacity: 1;
     }
 
-    /* ===== CONTEÚDO (CENTRADO NA PÁGINA) ===== */
+    /* ===== MOBILE MENU ===== */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 2rem;
+      background: #000;
+      padding: 1rem 0;
+      text-align: right;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.5rem 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .mobile-menu a:hover {
+      opacity: 1;
+    }
+
+    /* ===== CONTEÚDO ===== */
     .contact-wrapper {
       flex: 1;
       display: grid;
@@ -112,10 +142,9 @@
     .contact-text p {
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 1rem;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
       max-width: 400px;
+      margin-bottom: 1.5rem;
     }
 
     .contact-photo img {
@@ -126,106 +155,44 @@
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
+
+      .header-left {
+        display: none;
+      }
+
+      .logo-center {
+        position: static;
+        transform: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
       .contact-content {
         grid-template-columns: 1fr;
         text-align: center;
       }
+
       .contact-text p {
         margin-left: auto;
         margin-right: auto;
       }
     }
-  /* ===== MOBILE ===== */
-@media (max-width: 768px) {
-
-  /* esconde menu desktop */
-  .header-left {
-    display: none;
-  }
-
-  /* mantém header-right visível */
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  /* mostra botão ☰ */
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
-
-  /* logo passa para a esquerda */
-  .logo-center {
-    position: static;
-    transform: none;
-  }
-
-  /* menu dropdown */
-  .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 2rem;
-    background: #000;
-    padding: 1rem 0;
-    text-align: right;
-  }
-
-  .mobile-menu a {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Metron', sans-serif;
-    opacity: 0.8;
-  }
-
-  .mobile-menu a:hover {
-    opacity: 1;
-  }
-}
-
-  /* logo vai para a esquerda */
-  .logo-center {
-    position: static;
-    transform: none;
-  }
-
-  .header-left {
-    display: none;
-  }
-
-  .header-right {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-
-
   </style>
 </head>
 
 <body class="page-contacto">
 
-  <!-- HEADER -->
- <header class="site-header">
+<header class="site-header">
 
-  <!-- ESQUERDA -->
+  <!-- ESQUERDA (desktop) -->
   <div class="header-left">
     <a href="index.html">FILMES</a>
     <a href="contacto.html">CONTACTO</a>
   </div>
 
-  <!-- LOGO CENTRO (desktop) / ESQUERDA (mobile) -->
+  <!-- LOGO -->
   <div class="logo-center">
     JULIODACOSTA
   </div>
@@ -236,45 +203,37 @@
       <img src="imagens/iglogobranco.png" alt="Instagram">
     </a>
 
-    <!-- BOTÃO MOBILE -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      ☰
-    </button>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
   </div>
 
-  <!-- MENU MOBILE (dropdown) -->
+  <!-- MENU MOBILE -->
   <div class="mobile-menu">
     <a href="index.html">FILMES</a>
     <a href="contacto.html">CONTACTO</a>
-    <a href="https://www.instagram.com/juliodacosta91" target="_blank">
-      Instagram
-    </a>
+    <a href="https://www.instagram.com/juliodacosta91" target="_blank">Instagram</a>
   </div>
 
 </header>
 
+<main class="contact-wrapper">
+  <div class="contact-content">
 
-  <!-- CONTEÚDO -->
-  <main class="contact-wrapper">
-    <div class="contact-content">
+    <div class="contact-text">
+      <p>
+        Sou filmmaker focado em narrativa visual, conteúdo digital e storytelling
+        com uma abordagem moderna e cinematográfica.
+      </p>
 
-      <div class="contact-text">
-        <p>
-          Sou filmmaker focado em narrativa visual, conteúdo digital e storytelling
-          com uma abordagem moderna e cinematográfica.
-        </p>
-
-        <p>
-          JULIOFERCOS@GMAIL.COM
-        </p>
-      </div>
-
-      <div class="contact-photo">
-        <img src="imagens/julio.png" alt="Júlio da Costa">
-      </div>
-
+      <p>JULIOFERCOS@GMAIL.COM</p>
     </div>
-  </main>
+
+    <div class="contact-photo">
+      <img src="imagens/julio.png" alt="Júlio da Costa">
+    </div>
+
+  </div>
+</main>
+
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.mobile-menu');
