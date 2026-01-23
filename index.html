@@ -379,6 +379,77 @@ footer {
 </footer>
 
 <script>
+const items = document.querySelectorAll('.video-item');
+
+function stopAllPlayers() {
+  document.querySelectorAll('.final-player').forEach(p => p.remove());
+
+  items.forEach(item => {
+    item.classList.remove('playing');
+
+    const video = item.querySelector('video');
+    const thumb = item.querySelector('.video-thumb');
+    const overlay = item.querySelector('.video-overlay');
+
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+    thumb.style.display = 'block';
+    overlay.style.display = 'flex';
+  });
+}
+
+items.forEach(item => {
+  const video = item.querySelector('video');
+  const thumb = item.querySelector('.video-thumb');
+  const overlay = item.querySelector('.video-overlay');
+  const url = item.dataset.video;
+
+  item.addEventListener('mouseenter', () => {
+    if (item.classList.contains('playing')) return;
+    thumb.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  });
+
+  item.addEventListener('mouseleave', () => {
+    if (item.classList.contains('playing')) return;
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+    thumb.style.display = 'block';
+  });
+
+  overlay.addEventListener('click', () => {
+    stopAllPlayers();
+    item.classList.add('playing');
+
+    video.style.display = 'none';
+    thumb.style.display = 'none';
+    overlay.style.display = 'none';
+
+    const iframe = document.createElement('iframe');
+    iframe.src = url + '?autoplay=1';
+    iframe.className = 'final-player';
+    iframe.allow = 'autoplay; fullscreen';
+    iframe.allowFullscreen = true;
+
+    Object.assign(iframe.style, {
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      border: '0'
+    });
+
+    item.appendChild(iframe);
+  });
+});
+</script>
+
+
+  
+<script>
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.mobile-menu');
 
