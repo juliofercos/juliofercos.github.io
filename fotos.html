@@ -1,1 +1,376 @@
 
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Júlio da Costa — Portfólio de fotografia." />
+
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+
+  <title>Fotografia — Júlio da Costa</title>
+
+  <style>
+
+    /* ===== FONTES ===== */
+    @font-face {
+      font-family: 'Metron';
+      src: url('fonts/MetronMediumPro.otf') format('opentype');
+      font-display: swap;
+    }
+
+    /* ===== BASE ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Metron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+      background: #000;
+      z-index: 10;
+    }
+
+    .header-left,
+    .header-right {
+      display: flex;
+      gap: 1rem;
+      z-index: 2;
+      align-items: center;
+    }
+
+    .header-left a {
+      font-size: 0.8rem;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.25s ease;
+    }
+
+    .header-left a:hover {
+      opacity: 1;
+    }
+
+    /* Página ativa */
+    .page-fotos .header-left a[href="fotos.html"] {
+      opacity: 1;
+    }
+
+    .logo-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .header-right img {
+      width: 18px;
+      height: auto;
+      opacity: 0.8;
+      transition: opacity 0.25s ease;
+    }
+
+    .header-right img:hover {
+      opacity: 1;
+    }
+
+    /* ===== MENU HAMBURGUER ===== */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+      align-items: center;
+    }
+
+    /* ===== MENU MOBILE ===== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      text-align: center;
+    }
+
+    .mobile-menu-links a {
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.25s ease;
+    }
+
+    .mobile-menu-links a:hover {
+      opacity: 1;
+    }
+
+    .page-fotos .mobile-menu-links a[href="fotos.html"] {
+      opacity: 1;
+    }
+
+    /* ===== CONTEÚDO ===== */
+    .photos-wrapper {
+      flex: 1;
+      width: 100%;
+      padding: 2rem;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    /* ===== CATEGORIAS / PASTAS ===== */
+    .photo-category {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      text-decoration: none;
+      background: #111;
+    }
+
+    .photo-category img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 1;
+      transition: opacity 0.4s ease, transform 0.6s ease;
+    }
+
+    /* Título sobre a imagem */
+    .category-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Metron', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    /* Hover */
+    .photo-category:hover img {
+      opacity: 0.4;
+      transform: scale(1.03);
+    }
+
+    .photo-category:hover .category-title {
+      opacity: 1;
+    }
+
+    /* ===== TABLET ===== */
+    @media (max-width: 1000px) {
+      .photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+
+      .header-left {
+        display: none;
+      }
+
+      .logo-center {
+        position: static;
+        transform: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .photos-wrapper {
+        padding: 1rem;
+      }
+
+      .photos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .photo-category {
+        aspect-ratio: 16 / 10;
+      }
+
+      /* Títulos sempre visíveis em mobile */
+      .category-title {
+        opacity: 1;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      .photo-category img {
+        opacity: 0.75;
+      }
+
+      .photo-category:hover img {
+        opacity: 0.6;
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body class="page-fotos">
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="header-left">
+      <a href="index.html">FILMES</a>
+      <a href="fotos.html">FOTOS</a>
+      <a href="contacto.html">CONTACTO</a>
+    </div>
+
+    <div class="logo-center">JULIODACOSTA</div>
+
+    <div class="header-right">
+      <a href="https://www.instagram.com/juliodacosta91" target="_blank" rel="noopener noreferrer">
+        <img src="imagens/iglogobranco.png" alt="Instagram">
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu">
+
+    <div class="mobile-menu-links">
+      <a href="index.html">FILMES</a>
+      <a href="fotos.html">FOTOS</a>
+      <a href="contacto.html">CONTACTO</a>
+    </div>
+
+  </div>
+
+  <!-- CONTEÚDO -->
+  <main class="photos-wrapper">
+
+    <div class="photos-grid">
+
+      <!-- PAISAGENS -->
+      <a href="fotos/paisagens.html" class="photo-category">
+        <img src="imagens/fotos/paisagens.jpg" alt="Paisagens">
+        <span class="category-title">PAISAGENS</span>
+      </a>
+
+      <!-- RETRATOS -->
+      <a href="fotos/retratos.html" class="photo-category">
+        <img src="imagens/fotos/retratos.jpg" alt="Retratos">
+        <span class="category-title">RETRATOS</span>
+      </a>
+
+      <!-- CASAMENTOS -->
+      <a href="fotos/casamentos.html" class="photo-category">
+        <img src="imagens/fotos/casamentos.jpg" alt="Casamentos">
+        <span class="category-title">CASAMENTOS</span>
+      </a>
+
+      <!-- IMOBILIÁRIA -->
+      <a href="fotos/imobiliaria.html" class="photo-category">
+        <img src="imagens/fotos/imobiliaria.jpg" alt="Fotografia imobiliária">
+        <span class="category-title">IMOBILIÁRIA</span>
+      </a>
+
+      <!-- BOUDOIR -->
+      <a href="fotos/boudoir.html" class="photo-category">
+        <img src="imagens/fotos/boudoir.jpg" alt="Boudoir">
+        <span class="category-title">BOUDOIR</span>
+      </a>
+
+      <!-- AUTOMÓVEIS -->
+      <a href="fotos/automoveis.html" class="photo-category">
+        <img src="imagens/fotos/automoveis.jpg" alt="Fotografia automóvel">
+        <span class="category-title">AUTOMÓVEIS</span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+
+      document.body.style.overflow =
+        menu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+  </script>
+
+</body>
+</html>
